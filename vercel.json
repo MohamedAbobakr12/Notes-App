@@ -1,0 +1,29 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "server/**/*.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "client/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",           // Try to match any request
+      "dest": "server/$1.js"    // Try to find a backend function
+    },
+    {
+      "handle": "miss"          // If no backend file matched, fallback
+    },
+    {
+      "src": "/(.*)",           // Fallback route for frontend
+      "dest": "/client/$1"      // Serve from built Vite frontend
+    }
+  ]
+}
