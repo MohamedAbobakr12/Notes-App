@@ -15,15 +15,15 @@
   ],
   "routes": [
     {
-      "src": "/(.*)",           // Try to match any request
-      "dest": "server/$1.js"    // Try to find a backend function
+      "src": "/(.*)",
+      "dest": "server/$1.js"
     },
     {
-      "handle": "miss"          // If no backend file matched, fallback
+      "handle": "miss"
     },
     {
-      "src": "/(.*)",           // Fallback route for frontend
-      "dest": "/client/$1"      // Serve from built Vite frontend
+      "src": "/(.*)",
+      "dest": "/client/dist/$1"
     }
   ]
 }
