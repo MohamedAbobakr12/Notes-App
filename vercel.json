@@ -23,7 +23,8 @@
     },
     {
       "src": "/(.*)",
-      "dest": "/client/dist/$1"
+      "dest": "/client/dist/$1",
+      "check": true
     }
   ]
 }
